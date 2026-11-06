@@ -1,0 +1,86 @@
+Khoebo test run 2026-11-06T06:35:31.168Z
+App file: khoebo.html  SHA-256 0b89ecb897ae00b91288b5eddeb923f5f7406f10495d5a656c9089c8a9feda9f
+Node v22.23.4 · Playwright 1.63.0 · Chromium 153.0.8010.12 · linux x64
+
+Worklist priorities (traders with a Khoebo book): {"No action":5,"Human review":3,"Low":2,"High":3,"Medium":2}
+  self-test: PASS Passwords are stored scrambled, never as plain text
+  self-test: PASS A wrong password is refused
+  self-test: PASS Repeated wrong passwords block log in
+  self-test: PASS Repeated wrong officer PINs lock the account
+  self-test: PASS A field officer cannot open another district's business
+  self-test: PASS A field officer cannot open configuration or the audit log
+  self-test: PASS A supervisor cannot change system settings
+  self-test: PASS Nothing is shown without logging in
+  self-test: PASS Idle officer sessions end automatically
+  self-test: PASS Every refused sign-in is recorded in the audit log
+
+T01  PASS  Trader registration
+      expected: Account created
+      actual:   Account and business created; TIN question shown: true; tour started: true
+T02  PASS  Login
+      expected: Correct dashboard opens
+      actual:   Logged in with email and password; book opened: "Palesa Fresh Produce"
+T03  PASS  Sales recording
+      expected: Sale saved correctly
+      actual:   Sale of M150 saved
+T04  PASS  Expense recording
+      expected: Expense saved correctly
+      actual:   Cost of M12 saved: true; header shows "Money now
+M138"
+T05  PASS  Page refresh
+      expected: Saved records remain
+      actual:   After reload and log in, both records present once each
+T06  PASS  Officer access
+      expected: Authorised access only
+      actual:   A field officer cannot open another district's business; A field officer cannot open configuration or the audit log; A supervisor cannot change system settings; Nothing is shown without logging in
+T07  PASS  Mobile responsiveness
+      expected: Interface works on phone
+      actual:   iPhone SE: fits, buttons visible; iPhone 13: fits, buttons visible; Pixel 7: fits, buttons visible; Galaxy S9+: fits, buttons visible
+T08  PASS  Inactivity exception
+      expected: Not treated as non-compliant
+      actual:   Thabo Shoe Repairs: No action; reason "Owner reports the business is temporarily not trading: "Shoe-stitching machine broken, wai"
+T09  PASS  Human review
+      expected: Large gap goes to a person
+      actual:   Mpho General Dealer: Human review; Q2 2026/27: declared M4,248 but records show M35,398 (88% lower). Trader's note:
+T10  PASS  Wrong password
+      expected: Login refused
+      actual:   Refused: "The email or password is not right."
+T11  PASS  Password reset
+      expected: Reset with security question
+      actual:   Answered the question, set a new password and new question, logged in
+T12  PASS  Security self-test
+      expected: All checks blocked
+      actual:   10 of 10 passed
+T13  PASS  Identity review
+      expected: Cannot verify with missing documents
+      actual:   Can't verify yet. Proof of residence or letter from your chief / council is not uploaded. Use Ask for changes 
+T14  PASS  Offline reopen
+      expected: Book opens with no connection
+      actual:   Browser set offline, page reloaded, logged in: 2 of 2 records shown
+T15  PASS  USSD sale
+      expected: Sale added to the book
+      actual:   Menu 1 → amount 80 → Cash: M80 sale added
+T16  PASS  USSD bad amounts
+      expected: Refused and asked again
+      actual:   "abc" and "-5" both answered "Enter an amount above 0"; nothing recorded
+T17  PASS  WhatsApp unknown message
+      expected: Clear reply pointing to the menu
+      actual:   Reply: "Sorry, I didn't understand. Reply MENU to see what I can help with.…"
+T18  PASS  Similar business names
+      expected: Possible match goes to review with Confirm match
+      actual:   Maseru Market Greens vs register "Maseru Mkt Greens": Human review, suggested action "Confirm match"
+T19  PASS  Field officer outside district
+      expected: Refused and logged
+      actual:   Maseru field officer sees 8 of 27 records; opening "Hlotse Tailoring" (Leribe) refused and logged
+T20  PASS  Encrypted backup
+      expected: Wrong passphrase refused
+      actual:   AES-256-GCM backup: wrong passphrase → "Wrong passphrase, or the file is damaged."; right passphrase restored 3 records
+T21  PASS  Administrator PIN
+      expected: Empty or wrong PIN refused
+      actual:   Empty PIN signed in: false; wrong PIN signed in: false
+T22  PASS  Record-keeping index beside a review case
+      expected: Officer warned the index is not tax compliance
+      actual:   Quthing Spaza: Human review; warning shown next to the index: true
+
+JavaScript errors during run: none
+Result: 22 of 22 passed
