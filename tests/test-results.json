@@ -1,0 +1,160 @@
+{
+ "sha256": "0b89ecb897ae00b91288b5eddeb923f5f7406f10495d5a656c9089c8a9feda9f",
+ "tests": [
+  {
+   "id": "T01",
+   "feat": "Trader registration",
+   "exp": "Account created",
+   "ok": true,
+   "act": "Account and business created; TIN question shown: true; tour started: true"
+  },
+  {
+   "id": "T02",
+   "feat": "Login",
+   "exp": "Correct dashboard opens",
+   "ok": true,
+   "act": "Logged in with email and password; book opened: \"Palesa Fresh Produce\""
+  },
+  {
+   "id": "T03",
+   "feat": "Sales recording",
+   "exp": "Sale saved correctly",
+   "ok": true,
+   "act": "Sale of M150 saved"
+  },
+  {
+   "id": "T04",
+   "feat": "Expense recording",
+   "exp": "Expense saved correctly",
+   "ok": true,
+   "act": "Cost of M12 saved: true; header shows \"Money now\nM138\""
+  },
+  {
+   "id": "T05",
+   "feat": "Page refresh",
+   "exp": "Saved records remain",
+   "ok": true,
+   "act": "After reload and log in, both records present once each"
+  },
+  {
+   "id": "T06",
+   "feat": "Officer access",
+   "exp": "Authorised access only",
+   "ok": true,
+   "act": "A field officer cannot open another district's business; A field officer cannot open configuration or the audit log; A supervisor cannot change system settings; Nothing is shown without logging in"
+  },
+  {
+   "id": "T07",
+   "feat": "Mobile responsiveness",
+   "exp": "Interface works on phone",
+   "ok": true,
+   "act": "iPhone SE: fits, buttons visible; iPhone 13: fits, buttons visible; Pixel 7: fits, buttons visible; Galaxy S9+: fits, buttons visible"
+  },
+  {
+   "id": "T08",
+   "feat": "Inactivity exception",
+   "exp": "Not treated as non-compliant",
+   "ok": true,
+   "act": "Thabo Shoe Repairs: No action; reason \"Owner reports the business is temporarily not trading: \"Shoe-stitching machine broken, wai\""
+  },
+  {
+   "id": "T09",
+   "feat": "Human review",
+   "exp": "Large gap goes to a person",
+   "ok": true,
+   "act": "Mpho General Dealer: Human review; Q2 2026/27: declared M4,248 but records show M35,398 (88% lower). Trader's note:"
+  },
+  {
+   "id": "T10",
+   "feat": "Wrong password",
+   "exp": "Login refused",
+   "ok": true,
+   "act": "Refused: \"The email or password is not right.\""
+  },
+  {
+   "id": "T11",
+   "feat": "Password reset",
+   "exp": "Reset with security question",
+   "ok": true,
+   "act": "Answered the question, set a new password and new question, logged in"
+  },
+  {
+   "id": "T12",
+   "feat": "Security self-test",
+   "exp": "All checks blocked",
+   "ok": true,
+   "act": "10 of 10 passed"
+  },
+  {
+   "id": "T13",
+   "feat": "Identity review",
+   "exp": "Cannot verify with missing documents",
+   "ok": true,
+   "act": "Can't verify yet. Proof of residence or letter from your chief / council is not uploaded. Use Ask for changes "
+  },
+  {
+   "id": "T14",
+   "feat": "Offline reopen",
+   "exp": "Book opens with no connection",
+   "ok": true,
+   "act": "Browser set offline, page reloaded, logged in: 2 of 2 records shown"
+  },
+  {
+   "id": "T15",
+   "feat": "USSD sale",
+   "exp": "Sale added to the book",
+   "ok": true,
+   "act": "Menu 1 → amount 80 → Cash: M80 sale added"
+  },
+  {
+   "id": "T16",
+   "feat": "USSD bad amounts",
+   "exp": "Refused and asked again",
+   "ok": true,
+   "act": "\"abc\" and \"-5\" both answered \"Enter an amount above 0\"; nothing recorded"
+  },
+  {
+   "id": "T17",
+   "feat": "WhatsApp unknown message",
+   "exp": "Clear reply pointing to the menu",
+   "ok": true,
+   "act": "Reply: \"Sorry, I didn't understand. Reply MENU to see what I can help with.…\""
+  },
+  {
+   "id": "T18",
+   "feat": "Similar business names",
+   "exp": "Possible match goes to review with Confirm match",
+   "ok": true,
+   "act": "Maseru Market Greens vs register \"Maseru Mkt Greens\": Human review, suggested action \"Confirm match\""
+  },
+  {
+   "id": "T19",
+   "feat": "Field officer outside district",
+   "exp": "Refused and logged",
+   "ok": true,
+   "act": "Maseru field officer sees 8 of 27 records; opening \"Hlotse Tailoring\" (Leribe) refused and logged"
+  },
+  {
+   "id": "T20",
+   "feat": "Encrypted backup",
+   "exp": "Wrong passphrase refused",
+   "ok": true,
+   "act": "AES-256-GCM backup: wrong passphrase → \"Wrong passphrase, or the file is damaged.\"; right passphrase restored 3 records"
+  },
+  {
+   "id": "T21",
+   "feat": "Administrator PIN",
+   "exp": "Empty or wrong PIN refused",
+   "ok": true,
+   "act": "Empty PIN signed in: false; wrong PIN signed in: false"
+  },
+  {
+   "id": "T22",
+   "feat": "Record-keeping index beside a review case",
+   "exp": "Officer warned the index is not tax compliance",
+   "ok": true,
+   "act": "Quthing Spaza: Human review; warning shown next to the index: true"
+  }
+ ],
+ "errors": []
+}
